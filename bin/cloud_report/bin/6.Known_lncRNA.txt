@@ -1,0 +1,10 @@
+》
+二级标题
+已知lncRNA分析
+》
+正文
+拼接转录本与已知lncRNA数据库(lncRNAdb,NONCODE等)比对，鉴定样本中的已知lncRNA。已知lncRNA见下表：
+》
+表格
+已知lncRNA鉴定统计表
+注：query_id：LncRNA ID；db_id：已知数据库中的LncRNA ID；identify：相似度；coverage：覆盖度；database：已知数据库名称；query_length：LncRNA长度；db_length：已知数据库中的LncRNA长度；match_length：比对长度；mis-match：错配数；gap：空位数；query_star：LncRNA起始位置；query_end：LncRNA终止位置；db_star：已知数据库中LncRNA起始位置；db_end：已知数据库中LncRNA终止位置；e-value：期望值；score：blast得分。

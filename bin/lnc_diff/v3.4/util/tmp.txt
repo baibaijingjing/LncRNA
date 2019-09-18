@@ -1,0 +1,16 @@
+./Blast_bin/blast2.pl:24:`mkdir $od/work_sh ` unless (-d "$od/work_sh");
+./Blast_bin/blast2.pl:46:open OUT,">$od/work_sh/$program.sh" || die "fail $od/$program.sh";
+./Blast_bin/blast2.pl:53:&Cut_shell_qsub("$od/work_sh/$program.sh",$Blast_cpu,"6G","general.q");
+./Blast_bin/blast2.pl:57:open TAB1,">$od/work_sh/Covert_2Tabbest.sh" || die "$!";
+./Blast_bin/blast2.pl:58:open TAB2,">$od/work_sh/Covert_2Tab.sh" || die $!;
+./Blast_bin/blast2.pl:67:&Cut_shell_qsub("$od/work_sh/Covert_2Tabbest.sh",$Blast_cpu,"1G","general.q");
+./Blast_bin/blast2.pl:68:&Cut_shell_qsub("$od/work_sh/Covert_2Tab.sh",$Blast_cpu,"1G","general.q");
+./Blast_bin/blast2.pl:77:`rm -r $od/work_sh `;
+./Blast_bin/blast.pl:24:`mkdir $od/work_sh ` unless (-d "$od/work_sh");
+./Blast_bin/blast.pl:59:open OUT,">$od/work_sh/${jobs_id}$program.sh" || die "fail $od/${jobs_id}$program.sh";
+./Blast_bin/blast.pl:66:&Cut_shell_qsub("$od/work_sh/${jobs_id}$program.sh",$Blast_cpu,"6G","general.q");
+./Blast_bin/blast.pl:70:open TAB1,">$od/work_sh/Covert_2Tabbest.sh" || die "$!";
+./Blast_bin/blast.pl:71:open TAB2,">$od/work_sh/Covert_2Tab.sh" || die $!;
+./Blast_bin/blast.pl:77:&Cut_shell_qsub("$od/work_sh/Covert_2Tabbest.sh",$Blast_cpu,"1G","general.q");
+./Blast_bin/blast.pl:78:&Cut_shell_qsub("$od/work_sh/Covert_2Tab.sh",$Blast_cpu,"1G","general.q");
+./Blast_bin/blast.pl:83:#`rm -r $od/work_sh `;

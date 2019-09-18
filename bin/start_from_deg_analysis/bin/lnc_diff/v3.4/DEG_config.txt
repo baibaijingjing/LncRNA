@@ -1,0 +1,14 @@
+######## DEG Analysis
+#Com           	E1,E2,E3
+#Com 		E4,E5
+#Sep 		E1,E2,E3;E4,E5
+#Sep 		E1,E2,E3;E4,E5,E6
+Sep 		E1,E2;E3,E4;E5,E6
+
+
+######## DEG fold 
+fold          2
+
+######## FDR threshold
+FDR           0.01
+Ref_seq		/share/nas1/database/ref.fa

@@ -1,0 +1,10 @@
+#Chr	Pos	Gene_id	Ref	Alt	L01	Depth	AlleDp	Effect	Codon_change
+1	14653	Intergenic	C	T	T	2	0,2	INTERGENIC	.
+1	14677	Intergenic	G	A	A	2	0,2	INTERGENIC	.
+1	14930	Intergenic	A	G	R	3	1,2	INTERGENIC	.
+1	16495	Intergenic	G	C	S	6	4,2	INTERGENIC	.
+1	16571	Intergenic	G	A	A	2	0,2	INTERGENIC	.
+1	564598	Intergenic	A	G	G	19	1,18	INTERGENIC	.
+1	564654	Intergenic	G	A	A	23	0,23	INTERGENIC	.
+1	564862	Intergenic	T	C	C	29	0,29	INTERGENIC	.
+1	564868	Intergenic	T	C	C	30	0,30	INTERGENIC	.

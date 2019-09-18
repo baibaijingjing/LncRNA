@@ -1,0 +1,1136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>KEGG PATHWAY Database</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" type="text/css" href="/css/kegg2.css" />
+<link rel="stylesheet" type="text/css" href="/css/bgetm.css" media="only screen and (max-width: 767px)" />
+</head>
+
+<body>
+
+<table width="700">
+<tr>
+  <td width="180" align="center">
+    <a href="/kegg/"><img src="/Fig/kegg128.gif" alt="KEGG icon" border="0" /></a>
+  </td>
+  <td>
+    <h2 class="title30">KEGG PATHWAY Database</h2>
+    <h5>Wiring diagrams of molecular interactions, reactions, and relations</h5>
+  </td>
+</tr>
+</table>
+
+<br />
+<table width="700" cellpadding="2" class="frame3">
+<tr><td align="center" class="td30">
+  <table width="680">
+  <tr>
+    <th><a href="/kegg/kegg2.html">KEGG2</a></th>
+    <th><font class="current">PATHWAY</font></th>
+    <th><a href="/kegg/brite.html">BRITE</a></th>
+    <th><a href="/kegg/module.html">MODULE</a></th>
+    <th><a href="/kegg/ko.html">KO</a></th>
+    <th><a href="/kegg/genome.html">GENOME</a></th>
+    <th><a href="/kegg/genes.html">GENES</a></th>
+    <th><a href="/kegg/ligand.html">LIGAND</a></th>
+    <th><a href="/kegg/disease/">DISEASE</a></th>
+    <th><a href="/kegg/drug/">DRUG</a></th>
+    <th><a href="/dbget/">DBGET</a></th>
+  </tr>
+  </table>
+</td></tr>
+
+<tr><td align="center">
+<!-- start -->
+
+<form name="mode" action="http://www.kegg.jp/kegg-bin/search_pathway_text">
+<table width="600" align="center">
+  <tr><td align="left">
+    <font class="small">Select prefix</font>
+  </td><td align="left">
+    <font class="small">Enter keywords</font>
+  </td></tr>
+  <tr><td align="left">
+    <input type="text" name="map" size="4" value="map" />
+    <input type="button" value="Organism" onclick="window.open('/kegg-bin/find_org_www?mode=abbr&amp;obj=mode.map','_blank','toolbar=no,location=no,directories=no,width=500,height=200,resizable=yes');" />
+  </td><td align="left">
+    <input type="text" name="keyword" size="40" />
+    <input type="hidden" name="mode" value="1" />
+    <input type="hidden" name="viewImage" value="true" />
+    <input type="submit" value="Go" />
+    &nbsp;&nbsp; <a href="javascript:void(window.open('/kegg/document/help_pathway_search.html','KEGG_Help','toolbar=no,location=no,directories=no,width=720,height=640,resizable=yes,scrollbars=yes'))">Help</a>
+  </td></tr>
+</table>
+</form>
+
+<table width="660"><tr><td align="left">
+
+<hr class="frame3" />
+
+<div style="float:left;">
+<h4 class="title30">Pathway Maps</h4>
+</div>
+<div style="float:right;">
+[ <a href="/kegg/docs/upd_kegg.html">New pathway maps</a> | <a href="/kegg/docs/upd_map.html">Update history</a> ]
+</div>
+<div style="clear:both;"></div>
+
+<div class="indent">
+<b>KEGG PATHWAY</b> is a collection of manually drawn <a href="/kegg/kegg3a.html">pathway maps</a> representing our knowledge on the molecular interaction and reaction networks for:
+  <div class="indent">
+  <table><tr><td></td></tr><tr><td>
+    <b><a href="#metabolism">1. Metabolism</a></b>
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="#global">Global/overview</a>
+        &nbsp;&nbsp;<a href="#carbohydrate">Carbohydrate</a>
+        &nbsp;&nbsp;<a href="#energy">Energy</a>
+        &nbsp;&nbsp;<a href="#lipid">Lipid</a>
+        &nbsp;&nbsp;<a href="#nucleotide">Nucleotide</a>
+        &nbsp;&nbsp;<a href="#amino">Amino acid</a>
+        &nbsp;&nbsp;<a href="#other">Other amino</a>
+        &nbsp;&nbsp;<a href="#glycan">Glycan</a>
+    <br />&nbsp;&nbsp;&nbsp;&nbsp;<a href="#cofactor">Cofactor/vitamin</a>
+        &nbsp;&nbsp;<a href="#pk">Terpenoid/PK</a>
+        &nbsp;&nbsp;<a href="#secondary">Other secondary metabolite</a>
+        &nbsp;&nbsp;<a href="#xenobiotics">Xenobiotics</a>
+        &nbsp;&nbsp;<a href="#chemical">Chemical structure</a>
+    <br /><b><a href="#genetic">2. Genetic Information Processing</a></b>
+    <br /><b><a href="#environmental">3. Environmental Information Processing</a></b>
+    <br /><b><a href="#cellular">4. Cellular Processes</a></b>
+    <br /><b><a href="#organismal">5. Organismal Systems</a></b>
+    <br /><b><a href="#disease">6. Human Diseases</a></b>
+  </td></tr><tr><td></td></tr></table>
+  </div>
+and also on the structure relationships (KEGG drug structure maps) in:
+  <div class="indent">
+  <table><tr><td></td></tr><tr><td>
+    <b><a href="#drug">7. Drug Development</a></b>
+  </td></tr><tr><td></td></tr></table>
+  </div>
+</div>
+
+<h4 class="title30">Pathway Mapping</h4>
+
+<div class="indent">
+KEGG PATHWAY mapping is the process to map molecular datasets, especially large-scale datasets in genomics, transcriptomics, proteomics, and metabolomics, to the KEGG pathway maps for biological interpretaion of higher-level systemic functions.
+<ul>
+<li><a href="/kegg/tool/map_pathway1.html">Search Pathway</a> - basic pathway mapping tool</li>
+<li><a href="/kegg/tool/map_pathway2.html">Search&amp;Color Pathway</a> - advanced pathway mapping tool</li>
+<li><a href="/kegg/tool/map_pathway3.html">Color Pathway</a> - selected pathway map coloring tool</li>
+</ul>
+</div>
+
+<hr class="frame3" />
+
+<a name="metabolism"></a>
+<h4>1. Metabolism</h4>
+
+<a name="global"></a>
+<b>1.0 Global and overview maps</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td>
+    <a href="/kegg-bin/show_pathway?map01100">Metabolic pathways</a><br />
+    <a href="/kegg-bin/show_pathway?map01110">Biosynthesis of secondary metabolites</a><br />
+    <a href="/kegg-bin/show_pathway?map01120">Microbial metabolism in diverse environments</a><br />
+    <a href="/kegg-bin/show_pathway?map01130">Biosynthesis of antibiotics</a> <font class="new">New!</font><br />
+    <a href="/kegg-bin/show_pathway?map=map01200&amp;show_description=show">Carbon metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01210&amp;show_description=show">2-Oxocarboxylic acid metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01212&amp;show_description=show">Fatty acid metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01230&amp;show_description=show">Biosynthesis of amino acids</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01220&amp;show_description=show">Degradation of aromatic compounds</a>
+  </td><td>
+    [<a href="http://www.kegg.jp/kegg/atlas/?01100">KEGG Atlas</a>] &nbsp;&nbsp;<br />
+    [<a href="http://www.kegg.jp/kegg/atlas/?01110">KEGG Atlas</a>]<br />
+    [<a href="http://www.kegg.jp/kegg/atlas/?01120">KEGG Atlas</a>]<br />
+    [<a href="http://www.kegg.jp/kegg/atlas/?01130">KEGG Atlas</a>]<br />
+    [<a href="http://www.kegg.jp/kegg/atlas/?01200">KEGG Atlas</a>]<br />
+    [<a href="http://www.kegg.jp/kegg/atlas/?01210">KEGG Atlas</a>]<br />
+    [<a href="http://www.kegg.jp/kegg/atlas/?01212">KEGG Atlas</a>]<br />
+    [<a href="http://www.kegg.jp/kegg/atlas/?01230">KEGG Atlas</a>]<br />
+    [<a href="http://www.kegg.jp/kegg/atlas/?01220">KEGG Atlas</a>]
+  </td><td width="240">
+    <a href="/kegg-bin/get_htext?ko00002.keg">KEGG modules</a><br />
+    <a href="/kegg-bin/get_htext?ko00003.keg">KEGG reaction modules</a>
+  </td></tr>
+</table>
+
+<a name="carbohydrate"></a>
+<b>1.1 Carbohydrate metabolism</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=map00010&amp;show_description=show">Glycolysis / Gluconeogenesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00020&amp;show_description=show">Citrate cycle (TCA cycle)</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00030&amp;show_description=show">Pentose phosphate pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00040&amp;show_description=show">Pentose and glucuronate interconversions</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00051&amp;show_description=show">Fructose and mannose metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00052&amp;show_description=show">Galactose metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00053&amp;show_description=show">Ascorbate and aldarate metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00500&amp;show_description=show">Starch and sucrose metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00520&amp;show_description=show">Amino sugar and nucleotide sugar metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00620&amp;show_description=show">Pyruvate metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00630&amp;show_description=show">Glyoxylate and dicarboxylate metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00640&amp;show_description=show">Propanoate metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00650&amp;show_description=show">Butanoate metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00660&amp;show_description=show">C5-Branched dibasic acid metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00562&amp;show_description=show">Inositol phosphate metabolism</a>
+  </td><td width="240">
+    <a href="/kegg-bin/get_htext?ko01000.keg">Enzymes</a><br />
+    <a href="/kegg-bin/get_htext?br08001.keg">Compounds with biological roles</a>
+  </td></tr>
+</table>
+
+<a name="energy"></a>
+<b>1.2 Energy metabolism</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=map00190&amp;show_description=show">Oxidative phosphorylation</a><br />
+<!--
+    <a href="/kegg-bin/show_pathway?map=map00193&amp;show_description=show">ATP synthesis</a><br />
+-->
+    <a href="/kegg-bin/show_pathway?map=map00195&amp;show_description=show">Photosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00196&amp;show_description=show">Photosynthesis - antenna proteins</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00710&amp;show_description=show">Carbon fixation in photosynthetic organisms</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00720&amp;show_description=show">Carbon fixation pathways in prokaryotes</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00680&amp;show_description=show">Methane metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00910&amp;show_description=show">Nitrogen metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00920&amp;show_description=show">Sulfur metabolism</a>
+  </td><td width="240">
+    <br />
+    <a href="/kegg-bin/get_htext?ko00194.keg">Photosynthesis proteins</a>
+  </td></tr>
+</table>
+
+<a name="lipid"></a>
+<b>1.3 Lipid metabolism</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=map00061&amp;show_description=show">Fatty acid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00062&amp;show_description=show">Fatty acid elongation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00071&amp;show_description=show">Fatty acid degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00072&amp;show_description=show">Synthesis and degradation of ketone bodies</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00073&amp;show_description=show">Cutin, suberine and wax biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00100&amp;show_description=show">Steroid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00120&amp;show_description=show">Primary bile acid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00121&amp;show_description=show">Secondary bile acid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00140&amp;show_description=show">Steroid hormone biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00561&amp;show_description=show">Glycerolipid metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00564&amp;show_description=show">Glycerophospholipid metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00565&amp;show_description=show">Ether lipid metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00600&amp;show_description=show">Sphingolipid metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00590&amp;show_description=show">Arachidonic acid metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00591&amp;show_description=show">Linoleic acid metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00592&amp;show_description=show">alpha-Linolenic acid metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01040&amp;show_description=show">Biosynthesis of unsaturated fatty acids</a>
+  </td><td width="240">
+    <a href="/kegg-bin/get_htext?br08002.keg">Lipids</a><br />
+    <a href="/kegg-bin/get_htext?ko01004.keg">Lipid biosynthesis proteins</a>
+  </td></tr>
+</table>
+
+<a name="nucleotide"></a>
+<b>1.4 Nucleotide metabolism</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=map00230&amp;show_description=show">Purine metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00240&amp;show_description=show">Pyrimidine metabolism</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<a name="amino"></a>
+<b>1.5 Amino acid metabolism</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=map00250&amp;show_description=show">Alanine, aspartate and glutamate metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00260&amp;show_description=show">Glycine, serine and threonine metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00270&amp;show_description=show">Cysteine and methionine metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00280&amp;show_description=show">Valine, leucine and isoleucine degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00290&amp;show_description=show">Valine, leucine and isoleucine biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00300&amp;show_description=show">Lysine biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00310&amp;show_description=show">Lysine degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00330&amp;show_description=show">Arginine and proline metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00340&amp;show_description=show">Histidine metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00350&amp;show_description=show">Tyrosine metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00360&amp;show_description=show">Phenylalanine metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00380&amp;show_description=show">Tryptophan metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00400&amp;show_description=show">Phenylalanine, tyrosine and tryptophan biosynthesis</a>
+  </td><td width="240">
+    <a href="/kegg-bin/get_htext?ko01007.keg">Amino acid related enzymes</a>
+  </td></tr>
+</table>
+
+<a name="other"></a>
+<b>1.6 Metabolism of other amino acids</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=map00410&amp;show_description=show">beta-Alanine metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00430&amp;show_description=show">Taurine and hypotaurine metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00440&amp;show_description=show">Phosphonate and phosphinate metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00450&amp;show_description=show">Selenocompound metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00460&amp;show_description=show">Cyanoamino acid metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00471&amp;show_description=show">D-Glutamine and D-glutamate metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00472&amp;show_description=show">D-Arginine and D-ornithine metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00473&amp;show_description=show">D-Alanine metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00480&amp;show_description=show">Glutathione metabolism</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<a name="glycan"></a>
+<b>1.7 Glycan biosynthesis and metabolism</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=map00510&amp;show_description=show">N-Glycan biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00513&amp;show_description=show">Various types of N-glycan biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00512&amp;show_description=show">Mucin type O-Glycan biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00514&amp;show_description=show">Other types of O-glycan biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00532&amp;show_description=show">Glycosaminoglycan biosynthesis - CS/DS</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00534&amp;show_description=show">Glycosaminoglycan biosynthesis - HS/Hep</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00533&amp;show_description=show">Glycosaminoglycan biosynthesis - KS</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00531&amp;show_description=show">Glycosaminoglycan degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00563&amp;show_description=show">Glycosylphosphatidylinositol(GPI)-anchor biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00601&amp;show_description=show">Glycosphingolipid biosynthesis - lacto and neolacto series</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00603&amp;show_description=show">Glycosphingolipid biosynthesis - globo series</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00604&amp;show_description=show">Glycosphingolipid biosynthesis - ganglio series</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00540&amp;show_description=show">Lipopolysaccharide biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00550&amp;show_description=show">Peptidoglycan biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00511&amp;show_description=show">Other glycan degradation</a>
+  </td><td width="240">
+    <a href="/kegg/glycan/">KEGG GLYCAN</a><br /><br />
+    <a href="/kegg-bin/draw_csm">Composite structure map</a><br />
+    <a href="/kegg/catalog/codes2.html">Monosaccharide codes</a><br /><br />
+    <a href="/kegg-bin/get_htext?ko01003.keg">Glycosyltransferases</a><br />
+    <a href="/kegg-bin/get_htext?ko01005.keg">LPS biosynthesis proteins</a><br /><br />
+    <a href="/kegg-bin/get_htext?ko00535.keg">Proteoglycans</a><br />
+    <a href="/kegg-bin/get_htext?ko00536.keg">HS/Hep binding proteins</a><br />
+    <a href="/kegg-bin/get_htext?ko04091.keg">Glycan binding proteins</a>
+  </td></tr>
+</table>
+
+<a name="cofactor"></a>
+<b>1.8 Metabolism of cofactors and vitamins</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=map00730&amp;show_description=show">Thiamine metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00740&amp;show_description=show">Riboflavin metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00750&amp;show_description=show">Vitamin B6 metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00760&amp;show_description=show">Nicotinate and nicotinamide metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00770&amp;show_description=show">Pantothenate and CoA biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00780&amp;show_description=show">Biotin metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00785&amp;show_description=show">Lipoic acid metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00790&amp;show_description=show">Folate biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00670&amp;show_description=show">One carbon pool by folate</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00830&amp;show_description=show">Retinol metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00860&amp;show_description=show">Porphyrin and chlorophyll metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00130&amp;show_description=show">Ubiquinone and other terpenoid-quinone biosynthesis</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<a name="pk"></a>
+<b>1.9 Metabolism of terpenoids and polyketides</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=map00900&amp;show_description=show">Terpenoid backbone biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00902&amp;show_description=show">Monoterpenoid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00909&amp;show_description=show">Sesquiterpenoid and triterpenoid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00904&amp;show_description=show">Diterpenoid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00906&amp;show_description=show">Carotenoid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00905&amp;show_description=show">Brassinosteroid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00981&amp;show_description=show">Insect hormone biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00908&amp;show_description=show">Zeatin biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00903&amp;show_description=show">Limonene and pinene degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00281&amp;show_description=show">Geraniol degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01052&amp;show_description=show">Type I polyketide structures</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00522&amp;show_description=show">Biosynthesis of 12-, 14- and 16-membered macrolides</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01051&amp;show_description=show">Biosynthesis of ansamycins</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01056&amp;show_description=show">Biosynthesis of type II polyketide backbone</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01057&amp;show_description=show">Biosynthesis of type II polyketide products</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00253&amp;show_description=show">Tetracycline biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00523&amp;show_description=show">Polyketide sugar unit biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01054&amp;show_description=show">Nonribosomal peptide structures</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01053&amp;show_description=show">Biosynthesis of siderophore group nonribosomal peptides</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01055&amp;show_description=show">Biosynthesis of vancomycin group antibiotics</a>
+  </td><td width="240">
+    <a href="/kegg-bin/get_htext?ko01006.keg">Prenyltransferases</a><br />
+    <a href="/kegg-bin/get_htext?ko01008.keg">Polyketide biosynthesis proteins</a>
+  </td></tr>
+</table>
+
+<a name="secondary"></a>
+<b>1.10 Biosynthesis of other secondary metabolites</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=map00940&amp;show_description=show">Phenylpropanoid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00945&amp;show_description=show">Stilbenoid, diarylheptanoid and gingerol biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00941&amp;show_description=show">Flavonoid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00944&amp;show_description=show">Flavone and flavonol biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00942&amp;show_description=show">Anthocyanin biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00943&amp;show_description=show">Isoflavonoid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00901&amp;show_description=show">Indole alkaloid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00403&amp;show_description=show">Indole diterpene alkaloid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00950&amp;show_description=show">Isoquinoline alkaloid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00960&amp;show_description=show">Tropane, piperidine and pyridine alkaloid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01058&amp;show_description=show">Acridone alkaloid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00232&amp;show_description=show">Caffeine metabolism</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00965&amp;show_description=show">Betalain biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00966&amp;show_description=show">Glucosinolate biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00402&amp;show_description=show">Benzoxazinoid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00311&amp;show_description=show">Penicillin and cephalosporin biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00332&amp;show_description=show">Carbapenem biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00261&amp;show_description=show">Monobactam biosynthesis</a> <font class="new">New!</font><br />
+    <a href="/kegg-bin/show_pathway?map=map00331&amp;show_description=show">Clavulanic acid biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00521&amp;show_description=show">Streptomycin biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00524&amp;show_description=show">Butirosin and neomycin biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00231&amp;show_description=show">Puromycin biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00401&amp;show_description=show">Novobiocin biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00254&amp;show_description=show">Aflatoxin biosynthesis</a>
+  </td><td width="240">
+    <a href="/kegg-bin/get_htext?br08003.keg">Phytochemical compounds</a>
+  </td></tr>
+</table>
+
+<a name="xenobiotics"></a>
+<b>1.11 Xenobiotics biodegradation and metabolism</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td>
+    <a href="/kegg-bin/show_pathway?map=map00362&amp;show_description=show">Benzoate degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00627&amp;show_description=show">Aminobenzoate degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00364&amp;show_description=show">Fluorobenzoate degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00625&amp;show_description=show">Chloroalkane and chloroalkene degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00361&amp;show_description=show">Chlorocyclohexane and chlorobenzene degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00623&amp;show_description=show">Toluene degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00622&amp;show_description=show">Xylene degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00633&amp;show_description=show">Nitrotoluene degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00642&amp;show_description=show">Ethylbenzene degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00643&amp;show_description=show">Styrene degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00791&amp;show_description=show">Atrazine degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00930&amp;show_description=show">Caprolactam degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00351&amp;show_description=show">DDT degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00363&amp;show_description=show">Bisphenol degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00621&amp;show_description=show">Dioxin degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00626&amp;show_description=show">Naphthalene degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00624&amp;show_description=show">Polycyclic aromatic hydrocarbon degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00365&amp;show_description=show">Furfural degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00984&amp;show_description=show">Steroid degradation</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00980&amp;show_description=show">Metabolism of xenobiotics by cytochrome P450</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00982&amp;show_description=show">Drug metabolism - cytochrome P450</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00983&amp;show_description=show">Drug metabolism - other enzymes</a>
+  </td><td width="240">
+    <a href="/kegg-bin/get_htext?br08006.keg">Endocrine disrupting compounds</a><br />
+    <a href="/kegg-bin/get_htext?br08007.keg">Pesticides</a><br /><br />
+    <a href="/kegg-bin/get_htext?ko00199.keg">Cytochrome P450</a>
+  </td></tr>
+</table>
+
+<a name="chemical"></a>
+<b>1.12 Chemical structure transformation maps</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td>
+    <a href="/kegg-bin/show_pathway?map=map01010&amp;show_description=show">Overview of biosynthetic pathways</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01060&amp;show_description=show">Biosynthesis of plant secondary metabolites</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01061&amp;show_description=show">Biosynthesis of phenylpropanoids</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01062&amp;show_description=show">Biosynthesis of terpenoids and steroids</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01063&amp;show_description=show">Biosynthesis of alkaloids derived from shikimate pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01064&amp;show_description=show">Biosynthesis of alkaloids derived from ornithine, lysine and nicotinic acid</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01065&amp;show_description=show">Biosynthesis of alkaloids derived from histidine and purine</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01066&amp;show_description=show">Biosynthesis of alkaloids derived from terpenoid and polyketide</a><br />
+    <a href="/kegg-bin/show_pathway?map=map01070&amp;show_description=show">Biosynthesis of plant hormones</a>
+  </td></tr>
+</table>
+
+<hr class="frame3" />
+
+<a name="regulation"></a>
+<a name="genetic"></a>
+<h4>2. Genetic Information Processing</h4>
+
+<b>2.1 Transcription</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=ko03020&amp;show_description=show">RNA polymerase</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko03022&amp;show_description=show">Basal transcription factors</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko03040&amp;show_description=show">Spliceosome</a>
+  </td><td width="240">
+    <a href="/kegg-bin/get_htext?ko03000.keg">Transcription factors</a><br />
+    <a href="/kegg-bin/get_htext?ko03021.keg">Transcription machinery</a><br />
+    <a href="/kegg-bin/get_htext?ko03041.keg">Spliceosome</a>
+  </td></tr>
+</table>
+
+<b>2.2 Translation</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=ko03010&amp;show_description=show">Ribosome</a><br />
+    <a href="/kegg-bin/show_pathway?map=map00970&amp;show_description=show">Aminoacyl-tRNA biosynthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko03013&amp;show_description=show">RNA transport</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko03015&amp;show_description=show">mRNA surveillance pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko03008&amp;show_description=show">Ribosome biogenesis in eukaryotes</a>
+  </td><td width="240">
+    <a href="/kegg-bin/get_htext?ko03011.keg">Ribosome</a><br />
+    <a href="/kegg/annotation/br06010.html">Ribosomal proteins</a><br />
+    <a href="/kegg-bin/get_htext?ko03009.keg">Ribosome biogenesis</a><br />
+    <a href="/kegg-bin/get_htext?ko03016.keg">Transfer RNA biogenesis</a><br />
+    <a href="/kegg-bin/get_htext?ko03012.keg">Translation factors</a>
+  </td></tr>
+</table>
+
+<b>2.3 Folding, sorting and degradation</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=ko03060&amp;show_description=show">Protein export</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko04141&amp;show_description=show">Protein processing in endoplasmic reticulum</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko04130&amp;show_description=show">SNARE interactions in vesicular transport</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko04120&amp;show_description=show">Ubiquitin mediated proteolysis</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko04122&amp;show_description=show">Sulfur relay system</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko03050&amp;show_description=show">Proteasome</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko03018&amp;show_description=show">RNA degradation</a>
+  </td><td width="240">
+    <a href="/kegg-bin/get_htext?ko03110.keg">Chaperones and folding catalysts</a><br />
+    <a href="/kegg-bin/get_htext?ko04131.keg">SNAREs</a><br />
+    <a href="/kegg-bin/get_htext?ko04121.keg">Ubiquitin system</a><br />
+    <a href="/kegg-bin/get_htext?ko03051.keg">Proteasome</a>
+  </td></tr>
+</table>
+
+<b>2.4 Replication and repair</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=ko03030&amp;show_description=show">DNA replication</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko03410&amp;show_description=show">Base excision repair</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko03420&amp;show_description=show">Nucleotide excision repair</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko03430&amp;show_description=show">Mismatch repair</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko03440&amp;show_description=show">Homologous recombination</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko03450&amp;show_description=show">Non-homologous end-joining</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko03460&amp;show_description=show">Fanconi anemia pathway</a>
+  </td><td width="240">
+    <a href="/kegg-bin/get_htext?ko03032.keg">DNA replication proteins</a><br />
+    <a href="/kegg-bin/get_htext?ko03036.keg">Chromosome</a><br />
+    <a href="/kegg-bin/get_htext?ko03400.keg">DNA repair and recombination proteins</a>
+  </td></tr>
+</table>
+
+<hr class="frame3" />
+
+<a name="environmental"></a>
+<h4>3. Environmental Information Processing</h4>
+
+<b>3.1 Membrane transport</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=ko02010&amp;show_description=show">ABC transporters</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko02060&amp;show_description=show">Phosphotransferase system (PTS)</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko03070&amp;show_description=show">Bacterial secretion system</a>
+  </td><td width="240">
+    <a href="/kegg-bin/get_htext?ko02000.keg">Transporters</a><br />
+    <a href="/kegg-bin/get_htext?ko02044.keg">Secretion system</a>
+  </td></tr>
+</table>
+
+<b>3.2 Signal transduction</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=ko02020&amp;show_description=show">Two-component system</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04014&amp;show_description=show">Ras signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04015&amp;show_description=show">Rap1 signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04010&amp;show_description=show">MAPK signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=dme04013&amp;show_description=show">MAPK signaling pathway - fly</a><br />
+    <a href="/kegg-bin/show_pathway?map=sce04011&amp;show_description=show">MAPK signaling pathway - yeast</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04012&amp;show_description=show">ErbB signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04310&amp;show_description=show">Wnt signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04330&amp;show_description=show">Notch signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04340&amp;show_description=show">Hedgehog signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04350&amp;show_description=show">TGF-beta signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04390&amp;show_description=show">Hippo signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=dme04391&amp;show_description=show">Hippo signaling pathway - fly</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04370&amp;show_description=show">VEGF signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04630&amp;show_description=show">Jak-STAT signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04064&amp;show_description=show">NF-kappa B signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04668&amp;show_description=show">TNF signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04066&amp;show_description=show">HIF-1 signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04068&amp;show_description=show">FoxO signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04020&amp;show_description=show">Calcium signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04070&amp;show_description=show">Phosphatidylinositol signaling system</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04071&amp;show_description=show">Sphingolipid signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04024&amp;show_description=show">cAMP signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04022&amp;show_description=show">cGMP-PKG signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04151&amp;show_description=show">PI3K-Akt signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04152&amp;show_description=show">AMPK signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04150&amp;show_description=show">mTOR signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=ath04075&amp;show_description=show">Plant hormone signal transduction</a>
+  </td><td width="240">
+    <a href="/kegg-bin/get_htext?ko02022.keg">Two-component system</a><br /><br /><br />
+    <a href="/kegg/annotation/br06021.html">Signaling modules</a><br />
+  </td></tr>
+</table>
+
+<b>3.3 Signaling molecules and interaction</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa04080&amp;show_description=show">Neuroactive ligand-receptor interaction</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04060&amp;show_description=show">Cytokine-cytokine receptor interaction</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04512&amp;show_description=show">ECM-receptor interaction</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04514&amp;show_description=show">Cell adhesion molecules (CAMs)</a>
+  </td><td width="240">
+    <a href="/kegg-bin/get_htext?ko04030.keg">G protein-coupled receptors</a><br />
+    <a href="/kegg-bin/get_htext?ko01020.keg">Enzyme-linked receptors</a><br />
+    <a href="/kegg-bin/get_htext?ko04050.keg">Cytokine receptors</a> /
+    <a href="/kegg-bin/get_htext?ko04052.keg">Cytokines</a><br />
+    <a href="/kegg-bin/get_htext?ko03310.keg">Nuclear receptors</a><br />
+    <a href="/kegg-bin/get_htext?ko04040.keg">Ion channels</a><br />
+    <a href="/kegg-bin/get_htext?ko04031.keg">GTP-binding proteins</a><br />
+    <a href="/kegg-bin/get_htext?ko04515.keg">CAMs</a> / <a href="/kegg-bin/get_htext?ko04516.keg">CAM ligands</a><br />
+    <a href="/kegg-bin/get_htext?ko04090.keg">Cellular antigens</a>
+  </td></tr>
+</table>
+
+<hr class="frame3" />
+
+<a name="cellular"></a>
+<h4>4. Cellular Processes</h4>
+
+<b>4.1 Transport and catabolism</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=ko04144&amp;show_description=show">Endocytosis</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko04145&amp;show_description=show">Phagosome</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko04142&amp;show_description=show">Lysosome</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko04146&amp;show_description=show">Peroxisome</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko04140&amp;show_description=show">Regulation of autophagy</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>4.2 Cell motility</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=ko02030&amp;show_description=show">Bacterial chemotaxis</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko02040&amp;show_description=show">Flagellar assembly</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04810&amp;show_description=show">Regulation of actin cytoskeleton</a>
+  </td><td width="240">
+    <a href="/kegg-bin/get_htext?ko02035.keg">Bacterial motility proteins</a><br /><br />
+    <a href="/kegg-bin/get_htext?ko04812.keg">Cytoskeleton proteins</a>
+  </td></tr>
+</table>
+
+<b>4.3 Cell growth and death</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa04110&amp;show_description=show">Cell cycle</a><br />
+    <a href="/kegg-bin/show_pathway?map=sce04111&amp;show_description=show">Cell cycle - yeast</a><br />
+    <a href="/kegg-bin/show_pathway?map=ccr04112&amp;show_description=show">Cell cycle - Caulobacter</a><br />
+    <a href="/kegg-bin/show_pathway?map=sce04113&amp;show_description=show">Meiosis - yeast</a><br />
+    <a href="/kegg-bin/show_pathway?map=xla04114&amp;show_description=show">Oocyte meiosis</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04210&amp;show_description=show">Apoptosis</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04115&amp;show_description=show">p53 signaling pathway</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>4.4 Cellular community</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa04510&amp;show_description=show">Focal adhesion</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04520&amp;show_description=show">Adherens junction</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04530&amp;show_description=show">Tight junction</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04540&amp;show_description=show">Gap junction</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04550&amp;show_description=show">Signaling pathways regulating pluripotency of stem cells</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<hr class="frame3" />
+
+<a name="organismal"></a>
+<h4>5. Organismal Systems</h4>
+
+<b>5.1 Immune system</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa04640&amp;show_description=show">Hematopoietic cell lineage</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04610&amp;show_description=show">Complement and coagulation cascades</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04611&amp;show_description=show">Platelet activation</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04620&amp;show_description=show">Toll-like receptor signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04621&amp;show_description=show">NOD-like receptor signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04622&amp;show_description=show">RIG-I-like receptor signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04623&amp;show_description=show">Cytosolic DNA-sensing pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04650&amp;show_description=show">Natural killer cell mediated cytotoxicity</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04612&amp;show_description=show">Antigen processing and presentation</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04660&amp;show_description=show">T cell receptor signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04662&amp;show_description=show">B cell receptor signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04664&amp;show_description=show">Fc epsilon RI signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04666&amp;show_description=show">Fc gamma R-mediated phagocytosis</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04670&amp;show_description=show">Leukocyte transendothelial migration</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04672&amp;show_description=show">Intestinal immune network for IgA production</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04062&amp;show_description=show">Chemokine signaling pathway</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>5.2 Endocrine system</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa04911&amp;show_description=show">Insulin secretion</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04910&amp;show_description=show">Insulin signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04922&amp;show_description=show">Glucagon signaling pathway</a> <font class="new">New!</font><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04920&amp;show_description=show">Adipocytokine signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa03320&amp;show_description=show">PPAR signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04912&amp;show_description=show">GnRH signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04913&amp;show_description=show">Ovarian steroidogenesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04915&amp;show_description=show">Estrogen signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=xla04914&amp;show_description=show">Progesterone-mediated oocyte maturation</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04917&amp;show_description=show">Prolactin signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04921&amp;show_description=show">Oxytocin signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04918&amp;show_description=show">Thyroid hormone synthesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04919&amp;show_description=show">Thyroid hormone signaling pathway</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04916&amp;show_description=show">Melanogenesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04614&amp;show_description=show">Renin-angiotensin system</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>5.3 Circulatory system</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa04260&amp;show_description=show">Cardiac muscle contraction</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04261&amp;show_description=show">Adrenergic signaling in cardiomyocytes</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04270&amp;show_description=show">Vascular smooth muscle contraction</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>5.4 Digestive system</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa04970&amp;show_description=show">Salivary secretion</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04971&amp;show_description=show">Gastric acid secretion</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04972&amp;show_description=show">Pancreatic secretion</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04976&amp;show_description=show">Bile secretion</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04973&amp;show_description=show">Carbohydrate digestion and absorption</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04974&amp;show_description=show">Protein digestion and absorption</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04975&amp;show_description=show">Fat digestion and absorption</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04977&amp;show_description=show">Vitamin digestion and absorption</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04978&amp;show_description=show">Mineral absorption</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>5.5 Excretory system</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa04962&amp;show_description=show">Vasopressin-regulated water reabsorption</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04960&amp;show_description=show">Aldosterone-regulated sodium reabsorption</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04961&amp;show_description=show">Endocrine and other factor-regulated calcium reabsorption</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04964&amp;show_description=show">Proximal tubule bicarbonate reclamation</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04966&amp;show_description=show">Collecting duct acid secretion</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>5.6 Nervous system</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa04724&amp;show_description=show">Glutamatergic synapse</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04727&amp;show_description=show">GABAergic synapse</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04725&amp;show_description=show">Cholinergic synapse</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04728&amp;show_description=show">Dopaminergic synapse</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04726&amp;show_description=show">Serotonergic synapse</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04720&amp;show_description=show">Long-term potentiation</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04730&amp;show_description=show">Long-term depression</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04723&amp;show_description=show">Retrograde endocannabinoid signaling</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04721&amp;show_description=show">Synaptic vesicle cycle</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04722&amp;show_description=show">Neurotrophin signaling pathway</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>5.7 Sensory system</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa04744&amp;show_description=show">Phototransduction</a><br />
+    <a href="/kegg-bin/show_pathway?map=dme04745&amp;show_description=show">Phototransduction - fly</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04740&amp;show_description=show">Olfactory transduction</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04742&amp;show_description=show">Taste transduction</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04750&amp;show_description=show">Inflammatory mediator regulation of TRP channels</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>5.8 Development</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=dme04320&amp;show_description=show">Dorso-ventral axis formation</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04360&amp;show_description=show">Axon guidance</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04380&amp;show_description=show">Osteoclast differentiation</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>5.9 Environmental adaptation</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa04710&amp;show_description=show">Circadian rhythm</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04713&amp;show_description=show">Circadian entrainment</a><br />
+    <a href="/kegg-bin/show_pathway?map=dme04711&amp;show_description=show">Circadian rhythm - fly</a><br />
+    <a href="/kegg-bin/show_pathway?map=ath04712&amp;show_description=show">Circadian rhythm - plant</a><br />
+    <a href="/kegg-bin/show_pathway?map=ath04626&amp;show_description=show">Plant-pathogen interaction</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<hr class="frame3" />
+
+<a name="disease"></a>
+<h4>6. Human Diseases</h4>
+
+<b>6.1 Cancers: Overview</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa05200&amp;show_description=show">Pathways in cancer</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05230&amp;show_description=show">Central carbon metabolism in cancer</a> <font class="new">New!</font><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05231&amp;show_description=show">Choline metabolism in cancer</a> <font class="new">New!</font><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05202&amp;show_description=show">Transcriptional misregulation in cancer</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05206&amp;show_description=show">MicroRNAs in cancer</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05205&amp;show_description=show">Proteoglycans in cancer</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05204&amp;show_description=show">Chemical carcinogenesis</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05203&amp;show_description=show">Viral carcinogenesis</a><br />
+  </td><td width="240">
+    <a href="/kegg/disease/">KEGG DISEASE</a><br />
+    <a href="/kegg/disease/cancer.html">KEGG Cancer</a><br /><br />
+    <a href="/kegg-bin/get_htext?br08402.keg">Human diseases</a>
+  </td></tr>
+</table>
+
+<b>6.2 Cancers: Specific types</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa05210&amp;show_description=show">Colorectal cancer</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05212&amp;show_description=show">Pancreatic cancer</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05214&amp;show_description=show">Glioma</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05216&amp;show_description=show">Thyroid cancer</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05221&amp;show_description=show">Acute myeloid leukemia</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05220&amp;show_description=show">Chronic myeloid leukemia</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05217&amp;show_description=show">Basal cell carcinoma</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05218&amp;show_description=show">Melanoma</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05211&amp;show_description=show">Renal cell carcinoma</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05219&amp;show_description=show">Bladder cancer</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05215&amp;show_description=show">Prostate cancer</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05213&amp;show_description=show">Endometrial cancer</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05222&amp;show_description=show">Small cell lung cancer</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05223&amp;show_description=show">Non-small cell lung cancer</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>6.3 Immune diseases</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa05310&amp;show_description=show">Asthma</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05322&amp;show_description=show">Systemic lupus erythematosus</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05323&amp;show_description=show">Rheumatoid arthritis</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05320&amp;show_description=show">Autoimmune thyroid disease</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05321&amp;show_description=show">Inflammatory bowel disease (IBD)</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05330&amp;show_description=show">Allograft rejection</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05332&amp;show_description=show">Graft-versus-host disease</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05340&amp;show_description=show">Primary immunodeficiency</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>6.4 Neurodegenerative diseases</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa05010&amp;show_description=show">Alzheimer's disease</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05012&amp;show_description=show">Parkinson's disease</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05014&amp;show_description=show">Amyotrophic lateral sclerosis (ALS)</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05016&amp;show_description=show">Huntington's disease</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05020&amp;show_description=show">Prion diseases</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>6.5 Substance dependence</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa05030&amp;show_description=show">Cocaine addiction</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05031&amp;show_description=show">Amphetamine addiction</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05032&amp;show_description=show">Morphine addiction</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05033&amp;show_description=show">Nicotine addiction</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05034&amp;show_description=show">Alcoholism</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>6.6 Cardiovascular diseases</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa05410&amp;show_description=show">Hypertrophic cardiomyopathy (HCM)</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05412&amp;show_description=show">Arrhythmogenic right ventricular cardiomyopathy (ARVC)</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05414&amp;show_description=show">Dilated cardiomyopathy (DCM)</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05416&amp;show_description=show">Viral myocarditis</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>6.7 Endocrine and metabolic diseases</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa04940&amp;show_description=show">Type I diabetes mellitus</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04930&amp;show_description=show">Type II diabetes mellitus</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04932&amp;show_description=show">Non-alcoholic fatty liver disease (NAFLD)</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa04950&amp;show_description=show">Maturity onset diabetes of the young</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>6.8 Infectious diseases: Bacterial</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa05110&amp;show_description=show">Vibrio cholerae infection</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko05111&amp;show_description=show">Vibrio cholerae pathogenic cycle</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05120&amp;show_description=show">Epithelial cell signaling in Helicobacter pylori infection</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05130&amp;show_description=show">Pathogenic Escherichia coli infection</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05132&amp;show_description=show">Salmonella infection</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05131&amp;show_description=show">Shigellosis</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05133&amp;show_description=show">Pertussis</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05134&amp;show_description=show">Legionellosis</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05150&amp;show_description=show">Staphylococcus aureus infection</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05152&amp;show_description=show">Tuberculosis</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05100&amp;show_description=show">Bacterial invasion of epithelial cells</a>
+  </td><td width="240">
+    <a href="/kegg/disease/pathogen.html">KEGG Pathogen</a><br /><br />
+    <a href="/kegg-bin/get_htext?br08401.keg">Infectious diseases</a><br /><br />
+    <a href="/kegg-bin/get_htext?ko02042.keg">Bacterial toxins</a>
+  </td></tr>
+</table>
+
+<b>6.9 Infectious diseases: Viral</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa05166&amp;show_description=show">HTLV-I infection</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05162&amp;show_description=show">Measles</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05164&amp;show_description=show">Influenza A</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05161&amp;show_description=show">Hepatitis B</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05160&amp;show_description=show">Hepatitis C</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05168&amp;show_description=show">Herpes simplex infection</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05169&amp;show_description=show">Epstein-Barr virus infection</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>6.10 Infectious diseases: Parasitic</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=hsa05146&amp;show_description=show">Amoebiasis</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05144&amp;show_description=show">Malaria</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05145&amp;show_description=show">Toxoplasmosis</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05140&amp;show_description=show">Leishmaniasis</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05142&amp;show_description=show">Chagas disease (American trypanosomiasis)</a><br />
+    <a href="/kegg-bin/show_pathway?map=hsa05143&amp;show_description=show">African trypanosomiasis</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>6.11 Drug resistance</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=ko01501&amp;show_description=show">beta-Lactam resistance</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko01502&amp;show_description=show">Vancomycin resistance</a><br />
+    <a href="/kegg-bin/show_pathway?map=ko01503&amp;show_description=show">Cationic antimicrobial peptide (CAMP) resistance</a> <font class="new">New!</font>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<hr class="frame3" />
+
+<a name="drug"></a>
+<h4>7. Drug Development</h4>
+
+<b>7.1 Chronology: Antiinfectives</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=map07011&amp;show_description=show">Penicillins</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07012&amp;show_description=show">Cephalosporins - parenteral agents</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07013&amp;show_description=show">Cephalosporins - oral agents</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07021&amp;show_description=show">Aminoglycosides</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07019&amp;show_description=show">Tetracyclines</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07020&amp;show_description=show">Macrolides and ketolides</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07014&amp;show_description=show">Quinolones</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07023&amp;show_description=show">Rifamycins</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07026&amp;show_description=show">Antifungal agents</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07044&amp;show_description=show">Antiviral agents</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07053&amp;show_description=show">Anti-HIV agents</a>
+  </td><td width="240">
+    <a href="/kegg/drug/">KEGG DRUG</a><br /><br />
+    <a href="/kegg-bin/get_htext?br08303.keg">ATC classification (WHO)</a><br />
+    <a href="/kegg-bin/get_htext?br08302.keg">USP drug classification (USA)</a><br />
+    <a href="/kegg-bin/get_htext?br08301.keg">Therapeutic category of drugs (Japan)</a><br /><br />
+    <a href="/kegg/drug/br08307.html">Antiinfectives</a>
+  </td></tr>
+</table>
+
+<b>7.2 Chronology: Antineoplastics</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=map07040&amp;show_description=show">Antineoplastics - alkylating agents</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07041&amp;show_description=show">Antineoplastics - antimetabolic agents</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07042&amp;show_description=show">Antineoplastics - agents from natural products</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07043&amp;show_description=show">Antineoplastics - hormones</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07045&amp;show_description=show">Antineoplastics - protein kinases inhibitors</a>
+  </td><td width="240">
+    <a href="/kegg/drug/br08340.html">Antineoplastics</a>
+  </td></tr>
+</table>
+
+<b>7.3 Chronology: Nervous system agents</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=map07032&amp;show_description=show">Hypnotics</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07030&amp;show_description=show">Anxiolytics</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07033&amp;show_description=show">Anticonvulsants</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07015&amp;show_description=show">Local analgesics</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07039&amp;show_description=show">Opioid analgesics</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07028&amp;show_description=show">Antipsychotics</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07029&amp;show_description=show">Antipsychotics - phenothiazines</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07031&amp;show_description=show">Antipsychotics - butyrophenones</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07027&amp;show_description=show">Antidepressants</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07056&amp;show_description=show">Agents for Alzheimer-type dementia</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07057&amp;show_description=show">Antiparkinsonian agents</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>7.4 Chronology: Other drugs</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=map07055&amp;show_description=show">Sulfonamide derivatives - overview</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07016&amp;show_description=show">Sulfonamide derivatives - sulfa drugs</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07017&amp;show_description=show">Sulfonamide derivatives - diuretics</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07018&amp;show_description=show">Sulfonamide derivatives - hypoglycemic agents</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07037&amp;show_description=show">Antiarrhythmic drugs</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07038&amp;show_description=show">Antiulcer drugs</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07046&amp;show_description=show">Immunosuppressive agents</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07047&amp;show_description=show">Osteoporosis drugs</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07048&amp;show_description=show">Antimigraines</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07049&amp;show_description=show">Antithrombosis agents</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07050&amp;show_description=show">Antirheumatics - DMARDs and biological agents</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07051&amp;show_description=show">Antidiabetics</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07052&amp;show_description=show">Antidyslipidemic agents</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07054&amp;show_description=show">Antiglaucoma agents</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>7.5 Target-based classification: G protein-coupled receptors</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td>
+    <a href="/kegg-bin/show_pathway?map=map07220&amp;show_description=show">Cholinergic and anticholinergic drugs</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07215&amp;show_description=show">alpha-Adrenergic receptor agonists/antagonists</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07214&amp;show_description=show">beta-Adrenergic receptor agonists/antagonists</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07213&amp;show_description=show">Dopamine receptor agonists/antagonists</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07212&amp;show_description=show">Histamine H1 receptor antagonists</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07227&amp;show_description=show">Histamine H2/H3 receptor agonists/antagonists</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07211&amp;show_description=show">Serotonin receptor agonists/antagonists</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07228&amp;show_description=show">Eicosanoid receptor agonists/antagonists</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07224&amp;show_description=show">Opioid receptor agonists/antagonists</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07229&amp;show_description=show">Angiotensin receptor and endothelin receptor antagonists</a>
+  </td><td width="180">
+    <a href="/kegg-bin/get_htext?br08310.keg">Target-based classification</a><br /><br />
+    <a href="/kegg-bin/get_htext?ko04030.keg">G protein-coupled receptors</a>
+  </td></tr>
+</table>
+
+<b>7.6 Target-based classification: Nuclear receptors</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td>
+    <a href="/kegg-bin/show_pathway?map=map07225&amp;show_description=show">Glucocorticoid and mineralocorticoid receptor agonists/antagonists</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07226&amp;show_description=show">Progesterone, androgen and estrogen receptor agonists/antagonists</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07223&amp;show_description=show">Retinoic acid receptor (RAR) and retinoid X receptor (RXR) agonists/antagonists</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07222&amp;show_description=show">Peroxisome proliferator-activated receptor (PPAR) agonists</a>
+  </td><td width="120">
+    <a href="/kegg-bin/get_htext?ko03310.keg">Nuclear receptors</a>
+  </td></tr>
+</table>
+
+<b>7.7 Target-based classification: Ion channels</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td>
+    <a href="/kegg-bin/show_pathway?map=map07221&amp;show_description=show">Nicotinic cholinergic receptor antagonists</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07230&amp;show_description=show">GABA-A receptor agonists/antagonists</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07036&amp;show_description=show">Calcium channel blocking drugs</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07231&amp;show_description=show">Sodium channel blocking drugs</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07232&amp;show_description=show">Potassium channel blocking and opening drugs</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07235&amp;show_description=show">N-Metyl-D-aspartic acid receptor antagonists</a>
+  </td><td width="120">
+    <a href="/kegg-bin/get_htext?ko04040.keg">Ion channels</a>
+  </td></tr>
+</table>
+
+<b>7.8 Target-based classification: Transporters</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td>
+    <a href="/kegg-bin/show_pathway?map=map07233&amp;show_description=show">Ion transporter inhibitors</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07234&amp;show_description=show">Neurotransmitter transporter inhibitors</a>
+  </td><td width="120">
+  </td></tr>
+</table>
+
+<b>7.9 Target-based classification: Enzymes</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td>
+    <a href="/kegg-bin/show_pathway?map=map07216&amp;show_description=show">Catecholamine transferase inhibitors</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07219&amp;show_description=show">Cyclooxygenase inhibitors</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07024&amp;show_description=show">HMG-CoA reductase inhibitors</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07217&amp;show_description=show">Renin-angiotensin system inhibitors</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07218&amp;show_description=show">HIV protease inhibitors</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>7.10 Structure-based classification</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=map07025&amp;show_description=show">Quinolines</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07034&amp;show_description=show">Eicosanoids</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07035&amp;show_description=show">Prostaglandins</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<b>7.11 Skeleton-based classification</b>
+<table width="658">
+  <tr valign="top"><td width="10"></td><td width="400">
+    <a href="/kegg-bin/show_pathway?map=map07110&amp;show_description=show">Benzoic acid family</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07112&amp;show_description=show">1,2-Diphenyl substitution family</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07114&amp;show_description=show">Naphthalene family</a><br />
+    <a href="/kegg-bin/show_pathway?map=map07117&amp;show_description=show">Benzodiazepine family</a>
+  </td><td width="240">
+  </td></tr>
+</table>
+
+<hr class="frame3" />
+
+<i>Last updated: April 27, 2015</i>
+
+</td></tr></table>
+
+<!-- end -->
+</td></tr>
+
+<tr><td align="center" class="td30">
+  <table width="680">
+  <tr>
+    <th><a href="http://www.kegg.jp/">KEGG</a></th>
+    <th><a href="http://www.genome.jp/">GenomeNet</a></th>
+    <td align="center" width="35%"><a href="http://www.kanehisa.jp/">Kanehisa Laboratories</a></td>
+  </tr>
+  </table>
+</td></tr>
+</table>
+
+</body>
+
+</html>

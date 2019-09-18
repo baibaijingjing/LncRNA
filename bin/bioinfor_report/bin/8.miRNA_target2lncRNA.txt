@@ -1,0 +1,12 @@
+》
+二级标题
+miRNA靶向lncRNA分析
+》
+正文
+结果见下表：
+》
+表格
+miRNA靶向lncRNA分析表
+》
+注释
+注：第一列：miRNA ID；第二列：靶向LncRNA ID。

@@ -1,0 +1,10 @@
+#Seq_ID	Source	Type	Start	End	Score	Strand	Phase	Attributes
+22	Cufflinks	gene	25844063	25916058	.	+	.	ID=Human_newGene_10000
+22	Cufflinks	mRNA	25844063	25863438	.	+	.	ID=Human_newGene_10000.1;Parent=Human_newGene_10000
+22	Cufflinks	CDS	25844063	25844251	.	+	.	Parent=Human_newGene_10000.1
+22	Cufflinks	CDS	25851679	25851807	.	+	.	Parent=Human_newGene_10000.1
+22	Cufflinks	CDS	25853226	25853368	.	+	.	Parent=Human_newGene_10000.1
+22	Cufflinks	CDS	25855383	25855482	.	+	.	Parent=Human_newGene_10000.1
+22	Cufflinks	CDS	25862026	25863438	.	+	.	Parent=Human_newGene_10000.1
+22	Cufflinks	mRNA	25844063	25863438	.	+	.	ID=Human_newGene_10000.2;Parent=Human_newGene_10000
+22	Cufflinks	CDS	25844063	25844251	.	+	.	Parent=Human_newGene_10000.2

@@ -1,0 +1,10 @@
+GO.ID	Term	Annotated	Significant	Expected	KS
+GO:0045944	positive regulation of transcription fro...	885	7	7.9	1.6e-08
+GO:0055085	transmembrane transport	1178	7	10.51	2.2e-08
+GO:0007219	Notch signaling pathway	164	4	1.46	1.3e-07
+GO:0043065	positive regulation of apoptotic process	528	3	4.71	1.5e-06
+GO:0043434	response to peptide hormone stimulus	418	7	3.73	2.3e-06
+GO:0006892	post-Golgi vesicle-mediated transport	109	1	0.97	3.0e-06
+GO:0016310	phosphorylation	1973	22	17.6	4.0e-06
+GO:0044281	small molecule metabolic process	3056	21	27.26	8.1e-06
+GO:0007268	synaptic transmission	806	6	7.19	1.5e-05

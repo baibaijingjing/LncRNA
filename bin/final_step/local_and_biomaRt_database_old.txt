@@ -1,0 +1,39 @@
+Anas_platyrhynchos	ensembl	aplatyrhynchos_gene_ensembl
+metazoa_mart_28	metazoa_mart_28	amellifera_eg_gene
+Bombyx_mori	metazoa_mart_28	bmori_eg_gene
+Chlamydomonas_reinhardtii	plants_mart_28	creinhardtii_eg_gene
+Crassostrea_gigas	metazoa_mart_28	cgigas_eg_gene
+Danio_rerio	ensembl	drerio_gene_ensembl
+Gallus_gallus	ensembl	ggallus_gene_ensembl
+Homo_sapiens	ensembl	hsapiens_gene_ensembl
+Mus_musculus	ensembl	mmusculus_gene_ensembl
+Oryza_sativa_Japonica	plants_mart_28	osativa_eg_gene
+Ovis_aries	ensembl	oaries_gene_ensembl
+Rattus_norvegicus	ensembl	rnorvegicus_gene_ensembl
+Solanum_tuberosum	plants_mart_28	stuberosum_eg_gene
+Sorghum_bicolor	plants_mart_28	sbicolor_eg_gene
+Sus_scrofa	ensembl	sscrofa_gene_ensembl
+Zea_mays	plants_mart_28	zmays_eg_gene
+
+listMarts(host="www.ensembl.org")
+ensembl = useMart("ENSEMBL_MART_ENSEMBL",dataset="mmusculus_gene_ensembl", host="www.ensembl.org")
+ensembl = useMart("ENSEMBL_MART_ENSEMBL",dataset="hsapiens_gene_ensembl", host="www.ensembl.org")
+ensembl = useMart("ENSEMBL_MART_ENSEMBL",dataset="aplatyrhynchos_gene_ensembl", host="www.ensembl.org")
+useMart("ENSEMBL_MART_ENSEMBL",dataset="drerio_gene_ensembl", host="www.ensembl.org")
+useMart("ENSEMBL_MART_ENSEMBL",dataset="ggallus_gene_ensembl", host="www.ensembl.org")
+useMart("ENSEMBL_MART_ENSEMBL",dataset="oaries_gene_ensembl", host="www.ensembl.org")
+useMart("ENSEMBL_MART_ENSEMBL",dataset="rnorvegicus_gene_ensembl", host="www.ensembl.org")
+useMart("ENSEMBL_MART_ENSEMBL",dataset="sscrofa_gene_ensembl", host="www.ensembl.org")
+
+listMarts(host="metazoa.ensembl.org")
+useMart("metazoa_mart",dataset="bmori_eg_gene", host="metazoa.ensembl.org")
+useMart("metazoa_mart",dataset="amellifera_eg_gene", host="metazoa.ensembl.org")
+useMart("metazoa_mart",dataset="cgigas_eg_gene", host="metazoa.ensembl.org")
+
+useMart("plants_mart",dataset="zmays_eg_gene", host="plants.ensembl.org")
+useMart("plants_mart",dataset="sbicolor_eg_gene", host="plants.ensembl.org")
+useMart("plants_mart",dataset="stuberosum_eg_gene", host="plants.ensembl.org")
+useMart("plants_mart",dataset="osativa_eg_gene", host="plants.ensembl.org")
+useMart("plants_mart",dataset="creinhardtii_eg_gene", host="plants.ensembl.org")
+
+

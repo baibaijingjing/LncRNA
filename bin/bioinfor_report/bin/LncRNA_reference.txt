@@ -1,0 +1,27 @@
+#参考文献链接
+1	http://genome.cshlp.org/content/8/3/175.short
+2	http://www.biomedcentral.com/content/pdf/gb-2013-14-4-r36.pdf
+3	http://www.biomedcentral.com/content/pdf/gb-2009-10-3-r25.pd
+4	http://genome.cshlp.org/content/20/9/1297.short
+5	http://www.tandfonline.com/doi/abs/10.4161/fly.19695#.Vk6TaPRAUwo
+6	http://f1000research.com/articles/2-188/v1
+7	http://www.nature.com/nprot/journal/v7/n3/abs/nprot.2012.016.html
+8	http://nar.oxfordjournals.org/content/25/17/3389.short
+9	http://en.cnki.com.cn/Article_en/CJFDTOTAL-JSJC200605025.htm
+10	http://nar.oxfordjournals.org/content/32/suppl_1/D115.short
+11	http://www.nature.com/ng/journal/v25/n1/abs/ng0500_25.html
+12	http://nar.oxfordjournals.org/content/28/1/33.short
+13	http://nar.oxfordjournals.org/content/32/suppl_1/D277.short
+14	http://www.sciencedirect.com/science/article/pii/S0378375810004313
+15	http://www.nature.com/nbt/journal/v28/n5/full/nbt.1621.html
+16	http://www.nature.com/nature/journal/v489/n7414/abs/nature11233.html
+17	http://www.biomedcentral.com/content/pdf/gb-2010-11-10-r106.pdf
+18	http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3624807/
+19	http://bioconductor.uib.no/2.7/bioc/html/topGO.html
+20	http://nar.oxfordjournals.org/content/41/D1/D808.short
+21	http://genome.cshlp.org/content/13/11/2498.short
+22	http://www.ncbi.nlm.nih.gov/pmc/articles/PMC1933232/?tool=pubmed
+23	http://nar.oxfordjournals.org/content/early/2013/08/06/nar.gkt646.long
+24	http://nar.oxfordjournals.org/content/41/6/e74.short
+25	http://nar.oxfordjournals.org/content/42/D1/D222.long
+26	http://bib.oxfordjournals.org/content/early/2014/12/17/bib.bbu048.short

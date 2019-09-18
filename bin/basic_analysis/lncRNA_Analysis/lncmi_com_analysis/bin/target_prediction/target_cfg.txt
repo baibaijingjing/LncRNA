@@ -1,0 +1,6 @@
+### animal RNAhybrid parameter
+RNAhybrid_EN                      -25
+
+### plant targetfinder score
+TargetFinder_rev                  0   ##Search reverse strand for targets (0 off;1 on)
+TargetFinder_score                3

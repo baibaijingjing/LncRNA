@@ -1,0 +1,11 @@
+Chr	Source	Type	Start Site	End Site	Score	Strand	frame	Description
+7	Scripture	transcript	717796	751162	.	-	.	transcript_id "Scripture.7.59"; FPKM "Infinity";Exon_num "11"
+7	Scripture	exon	717797	718638	.	-	.	transcript_id "Scripture.7.59"; FPKM "Infinity"
+7	Scripture	exon	718639	718674	.	-	.	transcript_id "Scripture.7.59"; FPKM "Infinity"
+7	Scripture	exon	718676	720669	.	-	.	transcript_id "Scripture.7.59"; FPKM "Infinity"
+7	Scripture	exon	722284	722335	.	-	.	transcript_id "Scripture.7.59"; FPKM "Infinity"
+7	Scripture	exon	724135	724450	.	-	.	transcript_id "Scripture.7.59"; FPKM "Infinity"
+7	Scripture	exon	726903	727041	.	-	.	transcript_id "Scripture.7.59"; FPKM "Infinity"
+7	Scripture	exon	729828	729935	.	-	.	transcript_id "Scripture.7.59"; FPKM "Infinity"
+7	Scripture	exon	730030	730142	.	-	.	transcript_id "Scripture.7.59"; FPKM "Infinity"
+7	Scripture	exon	730251	730403	.	-	.	transcript_id "Scripture.7.59"; FPKM "Infinity"

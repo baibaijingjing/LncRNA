@@ -1,0 +1,5 @@
+cp: cannot create directory `/share/nas31/bin/png': No such file or directory
+cp: omitting directory `/share/nas3/xugl/Database/KEGG/png/20150511/'
+cp: omitting directory `/share/nas3/xugl/Database/KEGG/png/20150511/'
+cp: cannot create directory `/share/nas31/bin/png/': No such file or directory
+cp: cannot create directory `/share/nas31/bin/png/': No such file or directory

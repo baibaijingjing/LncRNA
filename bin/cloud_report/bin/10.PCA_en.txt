@@ -1,0 +1,9 @@
+》
+二级标题
+Differential gene principal component (PCA) analysis
+》
+正文
+Use counts number of differentical expression genes for principal component analysis and sample reproducibility, the results shown below:
+》
+图片
+Differentical gene principal component analysis chart

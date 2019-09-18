@@ -1,0 +1,10 @@
+Chr	Source	Type	Start Site	End Site	Score	Strand	frame	Description
+1	Cufflinks	transcript	14815	15766	1000	-	.	gene_id "L01.2"; transcript_id "L01.2.1"; FPKM "1.4943189523"; frac "1.000000"; conf_lo "0.971381"; conf_hi "2.017257"; cov "10.534757"; full_read_support "yes";
+1	Cufflinks	exon	14815	15766	1000	-	.	gene_id "L01.2"; transcript_id "L01.2.1"; exon_number "1"; FPKM "1.4943189523"; frac "1.000000"; conf_lo "0.971381"; conf_hi "2.017257"; cov "10.534757";
+1	Cufflinks	transcript	15964	16594	1000	-	.	gene_id "L01.1"; transcript_id "L01.1.1"; FPKM "1.3554259469"; frac "1.000000"; conf_lo "0.697948"; conf_hi "2.012904"; cov "8.306839"; full_read_support "yes";
+1	Cufflinks	exon	15964	16594	1000	-	.	gene_id "L01.1"; transcript_id "L01.1.1"; exon_number "1"; FPKM "1.3554259469"; frac "1.000000"; conf_lo "0.697948"; conf_hi "2.012904"; cov "8.306839";
+1	Cufflinks	transcript	34554	36081	1	-	.	gene_id "ENSG00000237613"; transcript_id "ENST00000417324"; FPKM "0.0000000000"; frac "0.000000"; conf_lo "0.000000"; conf_hi "0.000000"; cov "0.000000"; full_read_support "no";
+1	Cufflinks	exon	34554	35174	1	-	.	gene_id "ENSG00000237613"; transcript_id "ENST00000417324"; exon_number "1"; FPKM "0.0000000000"; frac "0.000000"; conf_lo "0.000000"; conf_hi "0.000000"; cov "0.000000";
+1	Cufflinks	exon	35277	35481	1	-	.	gene_id "ENSG00000237613"; transcript_id "ENST00000417324"; exon_number "2"; FPKM "0.0000000000"; frac "0.000000"; conf_lo "0.000000"; conf_hi "0.000000"; cov "0.000000";
+1	Cufflinks	exon	35721	36081	1	-	.	gene_id "ENSG00000237613"; transcript_id "ENST00000417324"; exon_number "3"; FPKM "0.0000000000"; frac "0.000000"; conf_lo "0.000000"; conf_hi "0.000000"; cov "0.000000";
+1	Cufflinks	transcript	69055	70108	1	+	.	gene_id "ENSG00000177693"; transcript_id "ENST00000326183"; FPKM "0.0000000000"; frac "0.000000"; conf_lo "0.000000"; conf_hi "0.000000"; cov "0.000000"; full_read_support "no";

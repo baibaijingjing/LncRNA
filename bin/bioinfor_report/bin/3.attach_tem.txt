@@ -1,0 +1,145 @@
+》
+参考文献
+1	Ewing B, Hillier L, Wendl MC, Green P. Base-calling of automated sequencer traces using phred. I. Accuracy assessment. [Genome Research Italic] 1998. 8 (3): 175-185.
+2	Kim D, Pertea G, Trapnell C, Pimentel H, Kelley R, Salzberg SL. TopHat2: accurate alignment of transcriptomes in the presence of insertions, deletions and gene fusions. [Genome Biology Italic] 2013, 14:R36.
+3	B Langmead, C Trapnell. Ultrafast and memory-efficient alignment of short DNA sequences to the human genome. [Genome Biology Italic] 2009, 10(3): R25.
+4	McKenna A, Hanna M, Banks E, et al. The Genome Analysis Toolkit: a MapReduce framework for analyzing next-generation DNA sequencing data[J]. Genome research, 2010, 20(9): 1297-1303.
+5	Cingolani P, Platts A, Wang L L, et al. A program for annotating and predicting the effects of single nucleotide polymorphisms, SnpEff: SNPs in the genome of Drosophila melanogaster strain w1118; iso-2; iso-3[J]. Fly, 2012, 6(2): 80-92.
+6	Florea L, Song L, Salzberg S L. Thousands of exon skipping events differentiate among splicing patterns in sixteen human tissues [v1; ref status: indexed[J]. 2013.
+7	Trapnell C, Roberts A, Goff L, et al. Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks[J]. Nature protocols, 2012, 7(3): 562-578. 
+8	Altschul S F, Madden T L, Schaffer A A, Zhang J, et al. Gapped BLAST and PSI BLAST: A New Generation of Protein Database Search Programs. [Nucleic Acids Research Italic] 1997, 25(17): 3389-3402.
+9	Deng YY, Li JQ, Wu S F, Zhu YP, et al. Integrated NR Database in Protein Annotation System and Its Localization. [Computer Engineering Italic] 2006.,32(5):71-74.
+10	Apweiler R, Bairoch A, Wu CH, Barker WC, et al. UniProt: the Universal Protein knowledgebase. [Nucleic Acids Research Italic] 2004 Jan 1;32(Database issue):D115-9.
+11	Ashburner M, Ball C A, Blake J A, Botstein D, et al. Gene ontology: tool for the unification of biology. [Nature Genetics Italic] 2000, 25(1): 25-29.
+12	Tatusov RL, Galperin MY, Natale DA. The COG database: a tool for genome scale analysis of protein functions and evolution. [Nucleic Acids Research Italic] 2000, 28(1):33-36.
+13	Kanehisa M, Goto S, Kawashima S, Okuno Y, et al. The KEGG resource for deciphering the genome. [Nucleic Acids Research Italic] 2004, 32(Database issue):D277-D280.
+14	Wang Z. One mixed negative binomial distribution with application[J]. Journal of Statistical Planning and Inference, 2011, 141(3): 1153-1160.
+15	Trapnell C, Williams BA, Pertea G, Mortazavi A, et al. Transcript assembly and quantification by RNA Seq reveals unannotated transcripts and isoform switching during cell differentiation. [Nature Biotechnology Italic] 2010, 28(5):511515.
+16	Djebali, Sarah and Mortazavi, et al. Landscape of transcription in human cells. [Nature Italic] 2012, 489 (7414). pp. 101-108. ISSN 0028-0836.
+17	Anders S, Huber W. Differential expression analysis for sequence count data[J]. Genome biol, 2010, 11(10): R106.
+18	Leng, N., J.A. Dawson, J.A. Thomson, et al. EBSeq: An empirical Bayes hierarchical model for inference in RNA-seq experiments, [Bioinformatics Italic], 2013, 29(8): 1035-1043.
+19	Alexa A, Rahnenfuhrer J. topGO: enrichment analysis for gene ontology. R package version 2.8, 2010.
+20	Franceschini A1, Szklarczyk D, Frankild S, et al. STRING v9.1: protein-protein interaction networks, with increased coverage and integration. [Nucleic Acids Research Italic] 2013 Jan;41(Database issue):D808-15.
+21	Shannon P, Markiel A, Ozier O, et al. Cytoscape: a software environment for integrated models of biomolecular interaction networks. [Genome Research Italic]. 2003, 13(11): 2498-2504.
+22	Kong L, Zhang Y, Ye Z Q, et al. CPC: assess the protein-coding potential of transcripts using sequence features and support vector machine[J]. Nucleic acids research, 2007, 35(suppl 2): W345-W349.
+23	Sun L, Luo H, Bu D, et al. Utilizing sequence intrinsic composition to classify protein-coding and long non-coding transcripts[J]. Nucleic acids research, 2013: gkt646.
+24	Wang L, Park H J, Dasari S, et al. CPAT: Coding-Potential Assessment Tool using an alignment-free logistic regression model[J]. [Nucleic acids research]. 2013, 41(6): e74-e74.
+25	Finn R D, Bateman A, Clements J, et al. Pfam: the protein families database[J]. Nucleic acids research, 2013: gkt1223.
+26	Li J, Ma W, Zeng P, et al. LncTar: a tool for predicting the RNA targets of long noncoding RNAs[J]. [Briefings in bioinformatics]. 2014: bbu048.
+》
+一级标题
+附录1：Methods of lncRNA-Seq
+》
+二级标题
+Sample collection and preparation
+》
+正文
+1.	RNA quantification and qualification
+》
+正文
+RNA degradation and contamination, especially DNA contamination, was monitored on 1.5% agarose gels.RNA concentration and purity was mesuredusing the NanoDrop 2000 Spectrophotometer (Thermo Fisher Scientific, Wilmington, DE).RNA integrity was assessed using the RNA Nano 6000 Assay Kit of the Agilent Bioanalyzer 2100 System (Agilent Technologies, CA, USA).
+》
+正文
+2.	Library preparation for lncRNA-Seq
+》
+正文
+A total amount of 1.5 μg RNA per sample was used as input material for rRNA removal using the Ribo-Zero rRNA Removal Kit (Epicentre, Madison, WI, USA). Sequencing libraries were generated using NEBNext<SUP>R</SUP> Ultra<SUP>TM</SUP> Directional RNA Library Prep Kit for Illumina<SUP>R</SUP> (NEB, USA) following manufacturer’s recommendations and index codes were added to attribute sequences to each sample. Briefly, Fragmentation was carried out using divalent cations under elevated temperature in NEBNext First Strand Synthesis Reaction Buffer （ 5X）. First strand cDNA was synthesized using random hexamer primer and Reverse Transcriptase. Second-strand cDNA synthesis was subsequently performed using DNA Polymerase I and RNase H. Remaining overhangs were converted into blunt ends via exonuclease/polymerase activities. After adenylation of 3’ ends of DNA fragments, NEBNext Adaptor with hairpin loop structure were ligated to prepare for hybridization. In order to select insert fragments of preferentially 150~200 bp in length, the library fragments were purified with AMPure XP Beads (Beckman Coulter, Beverly, USA). Then 3 μl USER Enzyme (NEB, USA) was used with size-selected, adaptor-ligated cDNA at 37°C for 15 min before PCR. Then PCR was performed with Phusion High-Fidelity DNA polymerase, Universal PCR primers and Index(X) Primer. At last, PCR products were purified (AMPure XP system) and library quality was assessed on the Agilent Bioanalyzer 2100 and qPCR. 
+》
+正文
+3.	Clustering and sequencing
+》
+正文
+The clustering of the index-coded samples was performed on acBot Cluster Generation System using TruSeq PE Cluster Kitv3-cBot-HS(Illumia) according to the manufacturer’s instructions. After cluster generation, the library preparations were sequenced onan Illumina Hiseq platform and paired-end reads were generated.
+》
+二级标题
+Data analysis
+》
+正文
+1.	Quality control
+》
+正文
+Raw data (raw reads) of fastq format were firstly processed through in-houseperl scripts. In this step, clean data(clean reads) were obtained by removing reads containing adapter, reads containing ploy-N and low quality reads from raw data. At the same time, Q20, Q30, GC-content and sequence duplication level of the clean data were calculated. All the downstream analyses were based on clean data with high quality.
+》
+正文
+2.	lncRNA analysis
+》
+正文
+The transcriptome was assembled using the Cufflinks and Scripture based on thereads mapped to the reference genome ..The assembled transcripts were annotated using the Cuffcompare program from the Cufflinks package.The unknowntranscripts were used to screen for putative lncRNAs. Three computational approaches include CPC/CNCI/Pfam/ were combined to sort non-protein codingRNA candidates from putative protein-coding RNAs in the unknown transcripts.Putative protein-coding RNAs were filtered out using aminimum length and exon number threshold . Transcripts with lengths more than 200 nt and have more than two exons were selected as lncRNA candidates and further screened using CPC/CNCI/Pfam  that have the power to distinguish the protein-coding genes from the non-coding genes. As well as the different types of lncRNAs include lincRNA,introniclncRNA, anti-sense lncRNA were selected using cuffcompare.
+》
+正文
+3.	Quantification of gene expression levels
+》
+正文
+Cuffdiff (v2.1.1) was used to calculate FPKMs of both lncRNAs and coding genes in each sample (Trapnell, C. et al. 2010). Gene FPKMs were computed by summing the FPKMs of transcripts in each gene group. FPKM means fragments per kilo-base of exon per million fragments mapped, calculated based on the length of the fragments and reads count mapped to this fragment.
+》
+正文
+4.	Differential expression analysis
+》
+正文
+For the samples with biological replicates:
+》
+正文
+Differential expression analysis of two conditions/groups was performed using the DESeq R package (1.10.1).DESeq provide statistical routines for determining differential expressionin digital gene expression data using a model based on the negative binomial distribution.The resulting Pvalues were adjusted using the Benjamini and Hochberg’s approach for controlling the false discovery rate. Genes with an adjusted P-value <0.01  and absolute value of log2(Fold change) >1 found by DESeq were assigned as differentially expressed.
+》
+正文
+For the samples without biological replicates:
+》
+正文
+Differential expression analysis of two samples was performed using the EBseq (2010) R package.Pvalue was adjusted using q value (Storey et al, 2003). qvalue<0.01 & |log2 （foldchange） |>1 was set as the threshold for significantly differential expression.
+》
+正文
+5.	Gene functional annotation
+》
+正文
+Gene function was annotated based on the following databases:
+》
+正文
+Nr (NCBI non-redundant protein sequences)；
+》
+正文
+Pfam (Protein family)；
+》
+正文
+KOG/COG (Clusters of Orthologous Groups of proteins)；
+》
+正文
+Swiss-Prot (A manually annotated and reviewed protein sequence database)；
+》
+正文
+KEGG (Kyoto Encyclopedia of Genes and Genomes)；
+》
+正文
+GO (Gene Ontology). 
+》
+正文
+6.	GO enrichment analysis
+》
+正文
+Gene Ontology (GO) enrichment analysis of the differentially expressed genes (DEGs) was implemented by the topGO R packages
+》
+正文
+7.	KEGG pathway enrichment analysis
+》
+正文
+We used KOBAS (Maoet al., 2005) software to test the statistical enrichment of differential expression genes in KEGG pathways.
+》
+正文
+8.	PPI (Protein Protein Interaction)
+》
+正文
+The sequences of the DEGs was blast (blastx) to the genome of a related species (the protein protein interaction of which exists in the STRING database:http://string-db.org/) to get the predicted PPI of these DEGs. Then the PPI of these DEGs were visualized in Cytoscape (Shannon et al, 2003)
+》
+一级标题
+附录2：
+》
+表格
+附表1 软件列表
+》
+注释
+注：第三列为#表示无软件连接。正文中未提及软件使用的生物信息分析均由BMK自主研发的软件实现，不在表中列出。
+》
+表格
+附表2 数据库列表
+》
+表格
+附表3 核酸编码表

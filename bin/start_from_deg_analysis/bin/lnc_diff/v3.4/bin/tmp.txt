@@ -1,0 +1,1 @@
+./fpkm_cor_plot/v1.0/bin/fpkm_cor_plot.r:139:file <- paste(args[2], "/sample_cluster.png", sep="")

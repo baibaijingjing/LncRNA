@@ -1,0 +1,218 @@
+use strict;
+use warnings;
+use Cwd qw(abs_path);     #获取工作路径，即当前目标所在的路径（函数括号里的东西）
+use Getopt::Long;         #获取选项
+use Data::Dumper;          #可打印引用的东西。eg：print Dumper(\%hash \@array);
+use FindBin qw($Bin $Script);  #$Bin  调用脚本的bin目录的路径，$Script  脚本名称  $RealBin 调用脚本的绝对路径  $RealScript  与脚本相关的脚本（用不着）
+use File::Basename qw(basename dirname);  #basename函数获取文件名  dirname函数获取路径  fileparse函数获取扩展名
+my $BEGIN_TIME=time();    #获取系统时间，可两者做差得到运行时间，单位为秒（s）
+my $version="1.0.0";
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+#GetOptions
+#-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+my($input_file1,$input_file2,$output_dir);  #选项的hash表
+GetOptions(
+  "in1=s"    => \$input_file1,   #=s表示串，eg：=i表示整数
+  "in2=s"    => \$input_file2,
+  "outdir=s" => \$output_dir,
+  "help|?"   => \&USAGE,
+  ) or &USAGE;
+ &USAGE unless (defined $input_file1 and defined $input_file2 and defined $output_dir);  #判断选项的合法性
+ &log_current_time("$Script start……");
+ my $tmp_path=abs_path($output_dir);
+ #print "\n\n$tmp_path\n\n";
+ `mkdir $output_dir/ -p` if(!-d "$tmp_path");
+ #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ #load input file,save the result
+ #print result
+ #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+open READ_1,"$input_file1"||die "can't open $!\n";#生成染色体的编号文件,统计过滤前的lncRNA和gene的数目
+open WRITE_1,">$tmp_path/before_filter_all_count.out"||die "can't create $!\n";
+open WRITE_11,">$tmp_path/before_filter_all_proportion.out"||die "can't create $!\n";
+open WRITE_2,">$tmp_path/before_filter_lncRNA.out"||die "can't create $!\n";
+open WRITE_3,">$tmp_path/before_filter_mRNA.out"||die "can't create $!\n";
+my (%chrom_list,@chrom_list,%lncRNA_for_chrom_before,%gene_for_chrom_before,%count_lncRNA_before,%count_gene_before,$sum_lncRNA_before,$sum_gene);#%chrom_list染色体的hash，@chrom_list染色体的列表，%lncRNA_for_chrom_before过滤器前的lncRNA指向染色体的hash
+#%gene_for_chrom_before基因指向染色体,%count_lncRNA,%count_gene分别表示计数
+while(<READ_1>){
+	$_=~/(.*?)\sCufflinks.*?gene_id \"(.*?)\"\; transcript_id \"(.*?)\"/;
+	if(length($1)>6){
+		$lncRNA_for_chrom_before{$3}="others";
+		$gene_for_chrom_before{$2}="others";
+	}
+	else{
+		$lncRNA_for_chrom_before{$3}=$1;
+		$gene_for_chrom_before{$2}=$1;
+	}
+	my @array=split;
+	next if(length($array[0])>6);
+	$chrom_list{$array[0]}=1;
+}
+@chrom_list=keys %chrom_list;
+push(@chrom_list,"others");   #异染色质归为others
+@chrom_list=sort{$a<=>$b}@chrom_list;
+#print "@chrom_list\n";      #如果后续还需要的话可以将其输出到一个文本中作为一个序列的信息
+foreach(keys %lncRNA_for_chrom_before){
+	$count_lncRNA_before{$lncRNA_for_chrom_before{$_}}+=1;
+}
+$sum_lncRNA_before=scalar(keys %lncRNA_for_chrom_before);
+foreach(keys %gene_for_chrom_before){
+	$count_gene_before{$gene_for_chrom_before{$_}}+=1;
+}
+$sum_gene=scalar(keys %gene_for_chrom_before);
+print WRITE_1"chr	num	class\n";
+print WRITE_11"chr	\%	class\n";
+foreach(@chrom_list){
+	my ($tmp1,$tmp2);
+	if(exists $count_lncRNA_before{$_}){
+		$tmp1=$count_lncRNA_before{$_};
+	}
+	else{
+		$tmp1=0;
+	}
+	if(exists $count_gene_before{$_}){
+		$tmp2=$count_gene_before{$_};
+	}
+	else{
+		$tmp2=0;
+	}
+	my $tmp3=$tmp1/$sum_lncRNA_before;
+	my $tmp4=$tmp2/$sum_gene;
+	print WRITE_1"$_	$tmp1	lncRNA_before\n$_	$tmp2	mRNA\n";
+	print WRITE_11"$_	$tmp3	lncRNA_before\n$_	$tmp4	mRNA\n";
+	print WRITE_2"$_	$tmp1\n";
+	print WRITE_3"$_	$tmp2\n";
+}
+close READ_1;
+close WRITE_1;
+close WRITE_11;
+close WRITE_2;
+close WRITE_3;
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+# draw picture by R
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+`/share/nas2/genome/bin/Rscript /share/nas1/shumy/test_count_each_lnc/simpleBar_one_var.r --infile $tmp_path/before_filter_lncRNA.out --outfile $tmp_path/before_filter_lncRNA --x.col 1 --y.col 2 --x.lab Chromosome --y.lab "Number of lncRNA" --number_label`;
+`/share/nas2/genome/bin/Rscript /share/nas1/shumy/test_count_each_lnc/simpleBar_one_var.r --infile $tmp_path/before_filter_mRNA.out --outfile $tmp_path/before_filter_mRNA --x.col 1 --y.col 2 --x.lab Chromosome --y.lab "Number of lncRNA" --number_label`;
+`/share/nas2/genome/bin/Rscript /share/nas1/shumy/test_count_each_lnc/simpleBar_two_var.r --infile $tmp_path/before_filter_all_count.out --outfile $tmp_path/before_filter_all_count --x.col 1 --y.col 2 --z.col 3 --x.lab Chromosome --y.lab Proportion`;
+`/share/nas2/genome/bin/Rscript /share/nas1/shumy/test_count_each_lnc/simpleBar_two_var.r --infile $tmp_path/before_filter_all_proportion.out --outfile $tmp_path/before_filter_all_proportion --x.col 1 --y.col 2 --z.col 3 --x.lab Chromosome --y.lab Proportion`;
+
+
+open READ_2,"$input_file2"||die "can't open $!\n";
+open WRITE_4,">$tmp_path/filter_all_count.out"||die "can't create $!\n";
+open WRITE_41,">$tmp_path/filter_all_proportion.out"||die "can't create $!\n";
+open WRITE_5,">$tmp_path/filter_and_before_filter_lncRNA.out"||die "can't create $!\n";
+open WRITE_51,">$tmp_path/filter_and_before_filter_lncRNA_proportion.out"||die "can't create $!\n";
+open WRITE_6,">$tmp_path/filter_lncRNA_count.out"||die "can't create $!\n";
+my (%lncRNA_for_chrom_filter,%gene_for_chrom_filter,%count_lncRNA_filter,%count_gene_filter,$sum_lncRNA_filter);
+while(<READ_2>){
+	$_=~/(.*?)\sCufflinks.*?gene_id \"(.*?)\"\; transcript_id \"(.*?)\"/;
+	if(length($1)>6){
+		$lncRNA_for_chrom_filter{$3}="others";
+		$gene_for_chrom_filter{$2}="others";
+	}
+	else{
+		$lncRNA_for_chrom_filter{$3}=$1;
+		$gene_for_chrom_filter{$2}=$1;
+	}
+	my @array=split;
+	next if(length($array[0])>6);
+	$chrom_list{$array[0]}=1;
+}
+foreach(keys %lncRNA_for_chrom_filter){
+	$count_lncRNA_filter{$lncRNA_for_chrom_filter{$_}}+=1;
+}
+$sum_lncRNA_filter=scalar(keys %lncRNA_for_chrom_filter);
+print WRITE_4"chr	num	class\n";
+print WRITE_5"chr	num	class\n";
+print WRITE_41"chr	\%	class\n";
+print WRITE_51"chr	\%	class\n";
+foreach(@chrom_list){
+	my ($tmp1,$tmp3,$tmp4);
+	if(exists $count_lncRNA_filter{$_}){
+		$tmp1=$count_lncRNA_filter{$_}
+	}
+	else{
+		$tmp1=0;
+	}
+	if(exists $count_lncRNA_before{$_}){
+		$tmp3=$count_lncRNA_before{$_}
+	}
+	else{
+		$tmp3=0;
+	}
+	if(exists $count_gene_before{$_}){
+		$tmp4=$count_gene_before{$_}
+	}
+	else{
+		$tmp4=0;
+	}
+	my $tmp5=$tmp1/$sum_lncRNA_filter;
+	my $tmp6=$tmp3/$sum_lncRNA_before;
+	my $tmp7=$tmp4/$sum_gene;
+	print WRITE_4"$_	$tmp1	lncRNA_filter	\n$_	$tmp4	mRNA\n";
+	print WRITE_41"$_	$tmp5	lncRNA_filter	\n$_	$tmp7	mRNA\n";
+	print WRITE_5"$_	$tmp3	lncRNA_before	\n$_	$tmp1	lncRNA_filter\n";
+	print WRITE_51"$_	$tmp6	lncRNA_before	\n$_	$tmp5	lncRNA_filter\n";
+	print WRITE_6"$_	$tmp1\n";
+}
+close READ_2;
+close WRITE_4;
+close WRITE_41;
+close WRITE_5;
+close WRITE_51;
+close WRITE_6;
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+# draw picture by R
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------
+`/share/nas2/genome/bin/Rscript /share/nas1/shumy/test_count_each_lnc/simpleBar_one_var.r --infile $tmp_path/filter_lncRNA_count.out --outfile $tmp_path/filter_lncRNA_count --x.col 1 --y.col 2 --x.lab Chromosome --y.lab "Number of lncRNA" --number_label`;
+`/share/nas2/genome/bin/Rscript /share/nas1/shumy/test_count_each_lnc/simpleBar_two_var.r --infile $tmp_path/filter_all_count.out --outfile $tmp_path/filter_all_count --x.col 1 --y.col 2 --z.col 3 --x.lab Chromosome --y.lab Proportion`;
+`/share/nas2/genome/bin/Rscript /share/nas1/shumy/test_count_each_lnc/simpleBar_two_var.r --infile $tmp_path/filter_all_proportion.out --outfile $tmp_path/filter_all_proportion --x.col 1 --y.col 2 --z.col 3 --x.lab Chromosome --y.lab Proportion`;
+`/share/nas2/genome/bin/Rscript /share/nas1/shumy/test_count_each_lnc/simpleBar_two_var.r --infile $tmp_path/filter_and_before_filter_lncRNA.out --outfile $tmp_path/filter_and_before_filter_lncRNA --x.col 1 --y.col 2 --z.col 3 --x.lab Chromosome --y.lab Proportion`;
+`/share/nas2/genome/bin/Rscript /share/nas1/shumy/test_count_each_lnc/simpleBar_two_var.r --infile $tmp_path/filter_and_before_filter_lncRNA_proportion.out --outfile $tmp_path/filter_and_before_filter_lncRNA_proportion --x.col 1 --y.col 2 --z.col 3 --x.lab Chromosome --y.lab Proportion`;
+
+
+###################################################################################################################################################################################
+ &log_current_time("$Script end……");    #调用时间函数
+ my $run_time=time()-$BEGIN_TIME;
+ print "the program run time is:$run_time.s\n";
+ 
+  sub log_current_time {
+     # get parameter    #获取参数
+     my ($info) = @_;
+
+     # get current time with string   #获取当前串的时间
+     my $curr_time = &date_time_format(localtime(time()));   #格式化获取时间表示方法
+
+     # print info with time
+     print "[$curr_time] $info\n";
+}
+
+sub date_time_format {
+    my ($sec, $min, $hour, $day, $mon, $year, $wday, $yday, $isdst)=localtime(time());
+    return sprintf("%4d-%02d-%02d %02d:%02d:%02d", $year+1900, $mon+1, $day, $hour, $min, $sec);
+}
+
+###################################################################################################################################################################################
+sub USAGE {
+	my $usage=<<"USAGE";
+----------------------------------------------------------------------------------------------------
+   Program: $Script
+   Version: $version
+   Contact: huangxy <huangxy\@biomarker.com.cn> 
+      Date: 2015-08-04
+      note: When the length of the chromosome id is longer than six,we classified it as \"others\"
+
+     Usage:
+            --in1      <FILE>  before filter 
+            --in2      <FILE>  filter
+            --outdir   <DIR>   analysis output directory
+   Example:
+            perl $Script --in1 merged.gtf --in2 filter_final.gtf --outdir Analysis/
+
+----------------------------------------------------------------------------------------------------
+USAGE
+	print $usage;
+	exit;
+}

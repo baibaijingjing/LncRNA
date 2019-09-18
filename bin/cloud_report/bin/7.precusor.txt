@@ -1,0 +1,10 @@
+》
+二级标题
+lncRNA中miRNA前体分析
+》
+正文
+利用miRbase数据库中的miRNA序列与lncRNA比对预测，统计作为miRNA前体的lncRNA，结果见下表：
+》
+表格
+miRNA前体的lncRNA统计
+注：#LncRNA_ID：LncRNA ID；miRNA_hp：miRNA前体ID；LncRNA_start：LncRNA比对起始位置；LncRNA_end：LncRNA比对终止位置。

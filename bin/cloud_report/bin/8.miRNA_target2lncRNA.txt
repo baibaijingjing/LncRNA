@@ -1,0 +1,11 @@
+》
+二级标题
+miRNA靶向lncRNA分析
+》
+正文
+在基因表达调控机制的研究中，lncRNA与miRNA之间可以类似于miRNA和mRNA的调控机制，即通过诱饵，海绵效应等各种作用关系来介导转录调控、转录后调控，甚至是翻译调控几个重要的基因表达模块。这种情况证明lncRNA与miRNA两者有着十分微妙的相互作用关系。
+流程中利用miRNA的靶关系预测lncRNA和miRNA的靶关系，结果见下表：
+》
+表格
+miRNA靶向lncRNA分析表
+注：第一列：miRNA ID；第二列：靶向LncRNA ID。
